@@ -17,3 +17,6 @@ pubnub.subscribe({
     GreenWorm::PushIt::check message['payload']['commits'].first
   end
 })
+
+# Testing
+#GreenWorm::PushIt::check({ 'id' => 'asdasd', 'author' => { 'name' => 'Ash' } })

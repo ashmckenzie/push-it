@@ -30,11 +30,11 @@ module GreenWorm
     end
 
     def say message
-      system "say -v Fred -r 200 #{message}"
+      system "osascript -e 'set Volume 5' ; say -v Fred -r 200 #{message} ; osascript -e 'set Volume 3'"
     end
 
     def play_push_it
-      system "afplay -v 10 ./push_it.mp3"
+      system "afplay -v 8 ./push_it.mp3"
     end
   end
 end
