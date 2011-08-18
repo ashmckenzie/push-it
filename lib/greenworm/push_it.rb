@@ -25,7 +25,11 @@ module GreenWorm
     end
  
     def get_latest_commit_from_disk
-      commit = File.read('last_commit.txt').chomp
+      begin
+        File.read('last_commit.txt').chomp
+      rescue
+        nil
+      end
     end
 
     def say message
