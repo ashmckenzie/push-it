@@ -8,7 +8,6 @@ require 'bundler/setup'
 
 require_relative 'lib/greenworm/push_it'
 
-=begin
 config = YAML.load_file 'config.yaml'
 pubnub = Pubnub.new(config['publish_key'], config['subscribe_key'], config['secret'], true)
 
@@ -18,6 +17,3 @@ pubnub.subscribe({
     GreenWorm::PushIt::check message['payload']['commits'].first
   end
 })
-=end
-
-GreenWorm::PushIt::check({ 'id' => 'test', 'author' => { 'name' => 'Ash' } })
