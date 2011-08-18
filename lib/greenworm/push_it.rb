@@ -2,12 +2,9 @@ module GreenWorm
   class PushIt
     def initialize commit
       return if commit['id'] == get_latest_commit_from_disk
-
       write_commit_to_disk commit['id']
-
       message = "#{commit['author']['name']} likes to PUSH IT!"
-
-      puts "\n>> #{message} - #{commit['message']}"
+      puts ">> #{message} - #{commit['message']}"
       say message
       play_push_it
     end
