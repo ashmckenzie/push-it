@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'application'
+require './application'
 
 set :run, false
 
