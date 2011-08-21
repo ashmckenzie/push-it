@@ -14,7 +14,7 @@ $redis = Redis.new(:host => $config['remote_host'])
 $redis.subscribe($config['channel']) do |on|
   on.message do |channel, msg|
     data = JSON.parse(msg)
-    GreenWorm::PushIt::check data['payload']['commits'].first
+    GreenWorm::PushIt::check data['commits'].first
   end
 end
 
