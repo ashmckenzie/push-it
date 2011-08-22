@@ -17,6 +17,3 @@ $redis.subscribe($config['channel']) do |on|
     GreenWorm::PushIt::check data['commits'].first
   end
 end
-
-# Testing
-#GreenWorm::PushIt::check({ 'id' => 'asdasd', 'author' => { 'name' => 'Ash' } })
