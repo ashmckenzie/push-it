@@ -6,7 +6,14 @@ module GreenWorm
       message = "#{commit['author']['name']} likes to PUSH IT!"
       @logger.info ">> #{message} - #{commit['message']}"
       say message
-      play_push_it
+
+      case commit['message']
+      when /wip/i
+        play_wip_it
+      else
+        play_push_it
+      end
+
       write_commit_to_disk commit['id']
     end
 
@@ -34,8 +41,12 @@ module GreenWorm
       system "osascript -e 'set Volume 4' ; say -v Fred -r 200 #{message} ; osascript -e 'set Volume 3'"
     end
 
+    def play_wip_it
+      system "afplay -v 4 ./wip_it.mp3"
+    end
+
     def play_push_it
-      system "afplay -v 5 ./push_it.mp3"
+      system "afplay -v 4 ./push_it.mp3"
     end
   end
 end
